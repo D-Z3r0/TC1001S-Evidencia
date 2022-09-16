@@ -112,18 +112,79 @@ def move():
     dot(20, 'yellow')
 
     for point, course in ghosts:
-        if valid(point + course):
-            point.move(course)
+      options1 = [
+        vector(-10, 0),
+        vector(0, 10),
+        vector(0, -10),
+      ]
+      options2 = [
+        vector(10, 0),
+        vector(0, 10),
+        vector(0, -10),
+      ]
+      options3 = [
+        vector(10, 0),
+        vector(-10, 0),
+        vector(0, -10),
+      ]
+      options4 = [
+        vector(10, 0),
+        vector(-10, 0),
+        vector(0, 10),
+      ]
+      options5 = [
+        vector(-10, 0),
+        vector(0, -10),
+      ]
+      options6 = [
+        vector(-10, 0),
+        vector(0, 10),
+      ]
+      options7 = [
+        vector(10, 0),
+        vector(0, -10),
+      ]
+      options8 = [
+        vector(10, 0),
+        vector(0, 10),
+      ]
+      if valid(point+course):
+        point.move(course)
+      else:
+        if not valid(point+vector(10,0)):
+          rand=choice(options1)
+          course.x=rand.x
+          course.y=rand.y
+        elif not valid(point+vector(-10,0)):
+          rand=choice(options2)
+          course.x=rand.x
+          course.y=rand.y
+        elif not valid(point+vector(0,10)):
+          rand=choice(options3)
+          course.x=rand.x
+          course.y=rand.y
+        elif not valid(point+vector(0,-10)):
+          rand=choice(options4)
+          course.x=rand.x
+          course.y=rand.y
+        elif not valid(point+vector(10,0) and not valid(point+vector(0,10))):
+          rand=choice(options5)
+          course.x=rand.x
+          course.y=rand.y
+        elif not valid(point+vector(-10,0) and not valid(point+vector(0,10))):
+          rand=choice(options6)
+          course.x=rand.x
+          course.y=rand.y
+        elif not valid(point+vector(10,0) and not valid(point+vector(0,-10))):
+          rand=choice(options7)
+          course.x=rand.x
+          course.y=rand.y
+        elif not valid(point+vector(-10,0) and not valid(point+vector(0,-10))):
+          rand=choice(options8)
+          course.x=rand.x
+          course.y=rand.y
         else:
-            options = [
-                vector(5, 0),
-                vector(-5, 0),
-                vector(0, 5),
-                vector(0, -5),
-            ]
-            plan = choice(options)
-            course.x = plan.x
-            course.y = plan.y
+          None
 
         up()
         goto(point.x + 10, point.y + 10)
