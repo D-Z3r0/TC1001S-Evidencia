@@ -94,3 +94,6 @@ tracer(False)
 onscreenclick(tap)
 draw()
 done()
+
+#Innovation
+#Instead of using numbers, colors appear when the tiles are flipped. We believe that it is easier to memorize colors than numbers.
