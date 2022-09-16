@@ -6,6 +6,8 @@ car = path('car.gif')
 tiles = list(range(32)) * 2
 state = {'mark': None}
 hide = [True] * 64
+winWriter = Turtle(visible=False)
+win = 0
 
 def square(x, y):
     "Draw white square with black outline at (x, y)."
@@ -45,6 +47,7 @@ def tap(x, y):
         state['mark'] = None
 
 def draw():
+    global win
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -64,9 +67,22 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
+
+    for count in range(64):
+        if hide[count] == False:
+            win += 1
+
+    if win == 64:
+        winWriter.setposition(0,0)
+        winWriter.color('purple')
+        winWriter.write('"YOU WIN"',align='center',font=('Arial', 50, 'normal'))
+        onscreenclick(None)
+        done()  
+        return
       
     update()
     ontimer(draw, 100)
+
 
 tap.counter = 0
 
