@@ -29,6 +29,11 @@ def xy(count):
 
 def tap(x, y):
     "Update mark and hidden tiles based on tap."
+    tap.counter += 1
+    tapsString = "Number of taps %s" %tap.counter
+    title(tapsString)
+    print("Number of taps: ", tap.counter)
+
     spot = index(x, y)
     mark = state['mark']
 
@@ -59,12 +64,14 @@ def draw():
         goto(x + 2, y)
         color('black')
         write(tiles[mark], font=('Arial', 30, 'normal'))
-
+      
     update()
     ontimer(draw, 100)
 
+tap.counter = 0
+
 shuffle(tiles)
-setup(420, 420, 370, 0)
+setup(420,420,370,0)
 addshape(car)
 hideturtle()
 tracer(False)
