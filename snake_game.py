@@ -3,6 +3,7 @@ import random
 from random import randrange
 from freegames import square, vector
 
+"Create 2 color lists so that when the game runs, the food and the snake are randomly different colors."
 colorsSnake = random.choice(['blue', 'green', 'black','goldenrod','pink'])
 colorsFood = random.choice(['purple','orange','deep sky blue','light salmon','saddle brown'])
 
@@ -54,6 +55,7 @@ def move():
     ontimer(move, 100)
 
 def moveFood():
+  "Move food forward one segment."
   if inside(food):
     r=random.randint(0,3)
     if r==0:
