@@ -1,4 +1,5 @@
 from turtle import *
+import math
 from freegames import vector
 
 def line(start, end):
@@ -59,6 +60,7 @@ onkey(lambda: color('white'), 'W')
 onkey(lambda: color('green'), 'G')
 onkey(lambda: color('blue'), 'B')
 onkey(lambda: color('red'), 'R')
+onkey(lambda: color('hot pink'), 'H')
 onkey(lambda: store('shape', line), 'l')
 onkey(lambda: store('shape', square), 's')
 onkey(lambda: store('shape', circle), 'c')
