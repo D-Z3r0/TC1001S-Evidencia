@@ -1,5 +1,7 @@
 # TC1001S-Evidencia
 
+En este texto se describe los cambios que se hicieron a los juegos para que fueron más completos o que funcionaran correctamente. 
+
 Paint Game
   Para el juego de Paint se añadió un color nuevo y nuevas figuras. De esta manera, se completó el código de las funciones que estaban para que se dibujaran. Las figuras añadidas son círculo, triángulo y rectángulo. 
 
