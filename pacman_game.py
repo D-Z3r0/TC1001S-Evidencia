@@ -109,7 +109,7 @@ def move():
     up()
     goto(pacman.x + 10, pacman.y + 10)
     dot(20, 'yellow')
-
+    
     for point, course in ghosts:
       options1 = [
         vector(-10, 0),
@@ -184,10 +184,9 @@ def move():
           course.y=rand.y
         else:
           None
-
-        up()
-        goto(point.x + 10, point.y + 10)
-        dot(20, 'red')
+      up()
+      goto(point.x + 10, point.y + 10)
+      dot(20, 'red')
 
     update()
 
