@@ -30,6 +30,7 @@ def xy(count):
     return (count % 8) * 50 - 200, (count // 8) * 50 - 200
 
 def tap(x, y):
+    global win
     "Update mark and hidden tiles based on tap."
     tap.counter += 1
     tapsString = "Number of taps %s" %tap.counter
@@ -45,9 +46,10 @@ def tap(x, y):
         hide[spot] = False
         hide[mark] = False
         state['mark'] = None
+        win += 1
+        print(win)
 
 def draw():
-    global win
     "Draw image and tiles."
     clear()
     goto(0, 0)
@@ -68,18 +70,14 @@ def draw():
         color('black')
         write(tiles[mark],align = 'center',font=('Arial', 30, 'normal'))
 
-    for count in range(64):
-        if hide[count] == False:
-            win += 1
-
-    if win == 64:
+    if win == 32:
         winWriter.setposition(0,0)
         winWriter.color('purple')
         winWriter.write('"YOU WIN"',align='center',font=('Arial', 50, 'normal'))
         onscreenclick(None)
         done()  
         return
-      
+    
     update()
     ontimer(draw, 100)
 
